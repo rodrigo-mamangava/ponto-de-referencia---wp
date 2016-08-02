@@ -1,0 +1,363 @@
+/*
+Theme Name: Ponto de Referêcia 2.0
+Author: Mamangava
+Author URI: http://mamangava.com/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:
+
+*/
+
+// Core bootstrap
+@import "bootstrap.less";
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Reset 
+# Colors
+# Typography
+# Elements
+# Forms
+# Header
+        ## faixa verde top
+        ## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+        ## Posts and pages
+        ## Comments
+# Infinite scroll
+# Media
+        ## Captions
+        ## Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# reset
+--------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6, p, a{
+    padding: 0;
+    margin: 0;
+}
+body{
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Cores
+--------------------------------------------------------------*/
+@roxo: #78278C;
+@branco: #ffffff;
+@vermelho: #cc0000;
+@laranja: #ff6600;
+
+
+/*--------------------------------------------------------------
+# Funcoes
+--------------------------------------------------------------*/
+.font(@size){    
+    font-size: unit(@size, px);
+    font-size: unit(@size/10, rem);
+}
+
+/*--------------------------------------------------------------
+# elementos
+--------------------------------------------------------------*/
+.li-horizontal{
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        text-align: center;
+
+        li {
+            display: inline;
+            list-style-type: none;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+# botoes
+--------------------------------------------------------------*/
+
+.setting-btn-padrao{
+    width: 100%;
+    border-radius: 0;
+    height: 270px;
+    .font(28);
+    white-space: normal;
+    display: block;
+    text-align: center;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.btn-home-1{
+    .btn;
+    .button-variant(@branco, @roxo, @roxo);
+    .setting-btn-padrao;
+}
+
+.btn-home-2{
+    .btn;
+    .button-variant(@branco, @vermelho, @vermelho);
+    .setting-btn-padrao;
+}
+
+.btn-home-3{
+    .btn;
+    .button-variant(@branco, @laranja, @laranja);
+    .setting-btn-padrao;
+}
+
+.btn-ativo{
+    .font(20);    
+}
+/*--------------------------------------------------------------
+# body
+--------------------------------------------------------------*/
+body{
+    position: relative;
+}
+/*--------------------------------------------------------------
+# header
+--------------------------------------------------------------*/
+
+.navbar{
+    border: 0;
+    border-radius: 0;
+    //background-color: transparent;
+    color: @branco;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2000;
+
+    .navbar-brand {
+        padding: 0px; /* firefox bug fix */
+    }
+    .navbar-brand>img {
+        height: 60px;
+        margin-top: 51px;
+        margin-left: 69px;
+        width: auto;
+
+        @media (max-width: @screen-xs-max) { 
+            height: 45px;
+            margin-top: 3px;
+            margin-left: 0px;
+        }
+    }
+
+    .navbar-nav{
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        @media (max-width: @screen-xs-max) { 
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+    }
+}
+
+.navbar-default{
+
+    .navbar-nav > li > a {
+        .font(19);
+        color: @branco;
+        &:hover{
+            color: @branco;
+        }
+
+        &:active, &:focus{
+            color: @laranja;
+        }
+
+    }
+} 
+
+
+
+
+
+/*--------------------------------------------------------------
+# Capa
+--------------------------------------------------------------*/
+header{
+    .navbar{
+        background-color: transparent;
+    }
+
+}
+header.branco{
+    .navbar{
+        background-color: @branco;
+    }
+
+}
+
+
+/*--------------------------------------------------------------
+# Capa
+--------------------------------------------------------------*/
+.capa{
+    position: relative;
+    z-index: 1000;
+
+
+    margin-top: -164px;
+    width: 100%;
+    height: auto;
+
+    @media (max-width: @screen-xs-max) { 
+        margin-top: 0px;
+    }
+
+
+    img{
+        width: 100%;
+        height: auto;
+    }    
+}
+
+.capa-titulo{
+    position: relative;
+    z-index: 1050;
+    margin-top: -40%;
+    color: @branco;
+
+    @media (max-width: @screen-xs-max) { 
+        margin-bottom: 20px;
+    }
+    @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
+        margin-bottom: 50px;
+    }
+
+    @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { 
+        margin-bottom: 100px;
+    }
+
+    h1{
+        margin-bottom: 24px;
+    }
+}
+
+
+
+
+/*--------------------------------------------------------------
+# home 
+--------------------------------------------------------------*/
+
+.home{
+
+
+
+    div.main{
+        position: relative;
+        z-index: 1050;
+        margin-top: -300px;
+
+        @media (max-width: @screen-xs-max) { 
+            margin-top: -150px;
+        }
+        @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) { 
+            margin-top: -400px;
+        }
+        @media (min-width: @screen-md-min) and (max-width: @screen-md-max) { 
+            margin-top: -450px;
+        }
+
+
+        div.sessao{
+            h2{
+                .font(32);
+                font-weight: 400;
+                margin-top: (70px-12px);
+                margin-bottom: 24px;
+            }
+
+            p{
+                .font(17.3);
+                font-weight: 400;
+                margin-top: -12px;
+                margin-bottom: 24px;
+                text-transform: uppercase;
+            }
+        }
+
+        #implementar-1{
+            color: @branco;
+            @media (max-width: @screen-xs-max) { 
+                color: @roxo;;
+            }
+        }
+        #implementar-2{
+            color: @roxo;
+        }
+        #navegar{
+            color: @vermelho;
+        }
+        #conhecer{
+            color: @laranja;
+        }
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+footer{
+    position: relative;
+    z-index: 1050;
+    background-color: @roxo;
+    
+    padding-top: 125px;
+    padding-bottom: 125px;
+    
+    .li-horizontal;
+
+    .social{
+        text-align: left;
+
+        img{
+            height: 25px;
+            width: auto;
+            padding-right: 20px;
+        }
+    }
+
+    .links-menu{
+        text-align: right;
+        li{
+            a{
+                .font(18);
+                color: @branco;
+            }
+            padding-left: 20px;
+        }
+    }
+
+}
+
