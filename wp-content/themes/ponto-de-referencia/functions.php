@@ -178,7 +178,7 @@ function get_header_transparente() {
                         <li><a href="#implementar-1">Quero implementar</a></li>
                         <li><a href="#navegar">Quero Navegar</a></li>
                         <li><a href="#conhecer">Quero Conhecer</a></li>
-                        <li><a href="#"><img src="image/search.png"></a></li>
+                        <li><a href="#"><img src='<?php echo get_template_directory_uri() ?>/image/search.png'></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -218,7 +218,7 @@ function get_header_branco() {
                         <li><a href="#implementar-1">Quero implementar</a></li>
                         <li><a href="#navegar">Quero Navegar</a></li>
                         <li><a href="#conhecer">Quero Conhecer</a></li>
-                        <li><a href="#"><img src="image/search.png"></a></li>
+                        <li><a href="#"><img src='<?php echo get_template_directory_uri() ?>/image/search.png'></a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -261,11 +261,43 @@ function get_capa() {
 
 add_shortcode('capa', 'get_capa');
 
-function lorem_function() {
-    return 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec nulla vitae lacus mattis volutpat eu at sapien. Nunc interdum congue libero, quis laoreet elit sagittis ut. Pellentesque lacus erat, dictum condimentum pharetra vel, malesuada volutpat risus. Nunc sit amet risus dolor. Etiam posuere tellus nisl. Integer lorem ligula, tempor eu laoreet ac, eleifend quis diam. Proin cursus, nibh eu vehicula varius, lacus elit eleifend elit, eget commodo ante felis at neque. Integer sit amet justo sed elit porta convallis a at metus. Suspendisse molestie turpis pulvinar nisl tincidunt quis fringilla enim lobortis. Curabitur placerat quam ac sem venenatis blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam sed ligula nisl. Nam ullamcorper elit id magna hendrerit sit amet dignissim elit sodales. Aenean accumsan consectetur rutrum.';
+function get_custom_footer() {
+    ?>
+    <footer>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-3">
+                    <ul class="social">
+                        <li><a href="#"><img src="<?php echo get_template_directory_uri() ?>/image/social/twitter.png"></a></li>
+                        <li><a href="#"><img src="<?php echo get_template_directory_uri() ?>/image/social/facebook.png"></a></li>                    
+                    </ul>
+                </div>
+
+                <div class="col-xs-12 col-sm-9">
+                    <ul class="links-menu">
+                        <li><a href="#implementar-1">Quero implementar</a></li>
+                        <li><a href="#navegar">Quero Navegar</a></li>
+                        <li><a href="#conhecer">Quero Conhecer</a></li>
+                    </ul>
+
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+    <?php
 }
 
-add_shortcode('lorem', 'lorem_function');
+add_shortcode('footer', 'get_custom_footer');
+
+
 
 //
 add_action('init', 'theme_custom_post_type');
@@ -300,21 +332,20 @@ function theme_custom_post_type() {
         'publicly_queryable' => true,
         'show_ui' => true,
         'show_in_menu' => true,
-        'menu_icon' => 'dashicons-id',
+        'menu_icon' => 'dashicons-screenoptions',
         'query_var' => true,
         'rewrite' => array('slug' => 'botao-home'),
         'capability_type' => 'post',
         'has_archive' => true,
         'hierarchical' => false,
         'menu_position' => null,
-        'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
-        'taxonomies' => array('category')
+        'supports' => array('title', 'editor', 'thumbnail', 'page-attributes'),
+            //'taxonomies' => array('category')
 //        'taxonomies' => array('category', 'post_tag')
     );
 
     register_post_type('botao-home', $args);
 }
-
 
 /* Custom Taxonomies */
 
@@ -341,40 +372,96 @@ function theme_custom_category() {
         'show_ui' => true,
         'show_admin_column' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'area-de-pesquisa'),
+        'rewrite' => array('slug' => 'tipo-botao'),
     );
 
     register_taxonomy('tipo-botao', array('botao-home'), $args);
     //end - Áreas de pesquisa
-  
-  
+    //Áreas de pesquisa
+    $labels = array(
+        'name' => 'Tamanho do botão',
+        'singular_name' => 'Tamanho do botão',
+        'search_items' => 'Buscar',
+        'all_items' => 'Todos',
+        'parent_item' => __('Parent'),
+        'parent_item_colon' => __('Parent:'),
+        'edit_item' => 'Editar',
+        'update_item' => 'Editar',
+        'add_new_item' => 'Adicionar novo tamanho de botão',
+        'new_item_name' => 'Novo tamanho de botão',
+        'menu_name' => __('Tamanho do botão'),
+    );
+
+    $args = array(
+        'hierarchical' => true,
+        'labels' => $labels,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'tamanho-botao'),
+    );
+
+    register_taxonomy('tamanho-botao', array('botao-home'), $args);
+    //end - Áreas de pesquisa
 }
 
 add_action('init', 'theme_custom_category');
 
 
+
+add_action('manage_botao-home_posts_custom_column', 'manage_roundtable_custom_columns', 10, 2);
+
+function manage_roundtable_custom_columns($column, $post_id) {
+    $the_post = get_post($id);
+
+    switch ($column) {
+        case 'menu_order' :
+
+            echo $the_post->menu_order;
+            break;
+    }
+}
+
+/**
+ * Debugar a funcao com pre e var_dump
+ * @param type $var
+ */
 function debug($var) {
     echo '<pre>';
     echo var_dump($var);
     echo '<pre>';
 }
 
+/**
+ * Verifica o tamanho do btn e imprime as classes certas
+ */
 function print_btn_class() {
-    if (has_category('botao-normal')) {
+    if (has_term('botao-normal', 'tamanho-botao')) {
         echo 'col-xs-6 col-sm-3';
-    } 
-    
-    if (has_category('botao-grande')) {
+    }
+
+    if (has_term('botao-grande', 'tamanho-botao')) {
         echo 'col-xs-12 col-sm-6';
     }
 }
 
-function print_btn_class2() {
-    if (has_term( 'botao-normal', 'tipo-botao' )) {
-        echo 'col-xs-6 col-sm-3';
-    } 
-    
-    if (has_term( 'botao-grande', 'tipo-botao' )) {
-        echo 'col-xs-12 col-sm-6';
+/*
+ * Get icones das rede sociais para os btn da home
+ * 
+ */
+
+function getSocialIcon() {
+    switch (strtolower(get_the_title())) {
+        case "facebook":
+            echo "<img src='" . get_template_directory_uri() . "/image/social/facebook.png'>";
+            break;
+        case "twitter":
+            echo "<img src='" . get_template_directory_uri() . "/image/social/twitter.png'>";
+            break;
+        case "linkedin":
+            echo "<img src='" . get_template_directory_uri() . "/image/social/Linkedin.png'>";
+            break;
+        default:
+            echo get_the_title();
     }
 }

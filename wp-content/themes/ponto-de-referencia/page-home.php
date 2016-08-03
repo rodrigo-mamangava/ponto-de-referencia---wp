@@ -59,23 +59,11 @@ endwhile; // End of the loop.
                 </div>
             </div>
         </div>
+        
+        
+        <?php get_template_part('template-parts/home/botoes', 'navegar'); ?>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-6 col-sm-3">                        
-                    <a class="botao-home btn-home-2"><img src="image/social/twitter.png" class="img-responsive"></a>
-                </div>
-                <div class="col-xs-6 col-sm-3">                        
-                    <a class="botao-home btn-home-2"><img src="image/social/facebook.png" class="img-responsive"></a>
-                </div>
-                <div class="col-xs-6 col-sm-3">                        
-                    <a class="botao-home btn-home-2"><img src="image/social/Linkedin.png" class="img-responsive"></a>
-                </div>
-                <div class="col-xs-6 col-sm-3">                        
-                    <a class="botao-home btn-home-2" data-tit="Blog" data-desc="Aqui vai a descriçao do botão" >Blog</a>
-                </div>
-            </div>
-        </div>
+       
     </div>
     <div class="sessao" id="conhecer">
 
@@ -93,6 +81,8 @@ endwhile; // End of the loop.
 
 
 </div>
+
+<?php get_custom_footer(); ?>
 
 
 <?php get_footer(); ?>

@@ -13,6 +13,7 @@
             ),
             'post_type' => 'botao-home',
             'orderby' => 'menu_order',
+            'order' => 'ASC',  
         );
 
         $the_query = new WP_Query($args);
@@ -21,7 +22,7 @@
         if ($the_query->have_posts()) :
             while ($the_query->have_posts()) : $the_query->the_post();
                 ?>
-                <div class="<?php print_btn_class2(); ?>" >                        
+                <div class="<?php print_btn_class(); ?>" >                        
                     <a 
                         href="<?php echo get_field("link") ?>"
                         class="botao-home btn-home-3" 

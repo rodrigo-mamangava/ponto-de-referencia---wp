@@ -8,7 +8,7 @@
                 array(
                     'taxonomy' => 'tipo-botao', //(string) - Taxonomy.
                     'field' => 'slug', //(string) - Select taxonomy term by ('id' or 'slug')
-                    'terms' => array('quero-implementar-consultoria'), //(int/string/array) - Taxonomy term(s).
+                    'terms' => array('quero-navegar'), //(int/string/array) - Taxonomy term(s).
                 ),
             ),
             'post_type' => 'botao-home',
@@ -25,21 +25,23 @@
                 <div class="<?php print_btn_class(); ?>" >                        
                     <a 
                         href="<?php echo get_field("link") ?>"
-                        class="botao-home btn-home-1" 
+                        class="botao-home btn-home-2" 
                         <?php
                         if (has_post_thumbnail) {
                             echo 'style="background-image: url(' . get_the_post_thumbnail_url() . ')"';
                         }
                         ?>
-                        data-tit="<?php echo get_the_title() ?>" 
+                        data-tit="<?php getSocialIcon()  ?>" 
                         data-desc="<?php echo get_field("descricao") ?>"> 
-                            <?php echo get_the_title() ?>
+                            <?php
+                            getSocialIcon();
+                            ?>
                     </a>
                 </div>
                 <?php
             endwhile;
         endif;
-        // Reset Post Data
+// Reset Post Data
         wp_reset_postdata();
         ?>
 
