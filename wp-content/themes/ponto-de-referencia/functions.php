@@ -166,4 +166,13 @@ require get_template_directory() . '/funcoes/functions-mmgv.php';
  * Functions Custom Post Type.
  */
 require get_template_directory() . '/funcoes/functions-custom-post-type.php';
+/**
+ * Functions Shortcodes.
+ */
+require get_template_directory() . '/funcoes/functions-shortcodes.php';
+/**
+ * 
+ * Functions Admin Area.
+ */
+require get_template_directory() . '/funcoes/functions-admin.php';
 
