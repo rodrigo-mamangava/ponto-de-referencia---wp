@@ -30,20 +30,48 @@ function printFaixa($atts) {
     $faixa = get_post($postId);
 
     $faixaMeta = get_post_meta($postId);
-    
-//    debug($faixaMeta);
+
+    //debug($faixaMeta);
 
     switch ($faixaMeta['_wp_page_template']['0']) {
         case 'faixa-imagem-texto.php':
             include(locate_template('faixa-imagem-texto.php'));
             break;
-        
+
         case 'faixa-texto-imagem.php':
             include(locate_template('faixa-texto-imagem.php'));
             break;
-        
+
         case 'faixa-imagem.php':
             include(locate_template('faixa-imagem.php'));
+            break;
+
+        case 'faixa-imagem-crop.php':
+            include(locate_template('faixa-imagem-crop.php'));
+            break;
+
+        case 'faixa-form.php':
+            include(locate_template('faixa-form.php'));
+            break;
+
+        case 'faixa-texto.php':
+            include(locate_template('faixa-texto.php'));
+            break;
+        
+        case 'faixa-video-texto.php':
+            include(locate_template('faixa-video-texto.php'));
+            break;
+        
+        case 'faixa-texto-video.php':
+            include(locate_template('faixa-texto-video.php'));
+            break;
+        
+        case 'faixa-video.php':
+            include(locate_template('faixa-video.php'));
+            break;
+        
+        case 'faixa-titulo.php':
+            include(locate_template('faixa-titulo.php'));
             break;
 
         default:

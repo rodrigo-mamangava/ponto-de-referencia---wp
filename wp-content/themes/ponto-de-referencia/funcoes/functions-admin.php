@@ -57,6 +57,8 @@ function my_edit_faixa_columns( $columns ) {
 
 add_action( 'manage_faixa_posts_custom_column', 'my_manage_faixa_columns', 10, 2 );
 
+
+
 function my_manage_faixa_columns( $column, $post_id ) {
 	global $post;
 

@@ -8,8 +8,9 @@
 
 ?>
 
+
 <!-- col-img-12 -->
 <div class="col-img-12 col-xs-12">
-    <img class="img-responsive" src="<?php echo get_field('imagem', $postId); ?>">
+    <img class="img-responsive" style="width: 100%; height: auto;" src="<?php echo get_field('imagem', $postId); ?>">
 </div>
 <!-- col-img-12 END -->

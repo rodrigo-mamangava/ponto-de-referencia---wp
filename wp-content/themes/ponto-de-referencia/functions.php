@@ -115,6 +115,7 @@ function ponto_de_referencia_scripts() {
 
     wp_enqueue_script('pdr-btn-home', get_template_directory_uri() . '/js/btn-home.js', array('jquery'), '20160802', true);
     wp_enqueue_script('pdr-scroll-home', get_template_directory_uri() . '/js/scroll.js', array('jquery'), '20160802', true);
+    wp_enqueue_script('add-class-iframe', get_template_directory_uri() . '/js/add-class-iframe.js', array('jquery'), '20160802', true);
 
     wp_enqueue_script('ponto-de-referencia-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true);
     wp_enqueue_script('ponto-de-referencia-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
@@ -165,7 +166,8 @@ require get_template_directory() . '/funcoes/functions-mmgv.php';
 /**
  * Functions Custom Post Type.
  */
-require get_template_directory() . '/funcoes/functions-custom-post-type.php';
+require get_template_directory() . '/funcoes/cpt_botoes.php';
+require get_template_directory() . '/funcoes/cpt_faixas.php';
 /**
  * Functions Shortcodes.
  */
