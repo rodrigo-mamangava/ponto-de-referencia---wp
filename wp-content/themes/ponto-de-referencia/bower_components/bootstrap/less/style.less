@@ -53,6 +53,12 @@ body{
 # Normalize
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+# Efeito de transição
+--------------------------------------------------------------*/
+*{
+    .transition(width 1s ease-in-out);
+}
+/*--------------------------------------------------------------
 # Cores
 --------------------------------------------------------------*/
 @roxo: #78278C;
@@ -115,23 +121,77 @@ body{
     .btn;
     .button-variant(@branco, @roxo, @roxo);
     .setting-btn-padrao;
+
+    .transition(all 1s);
+
+    &:hover{
+        .transition(all 1s);
+        background-color: lighten(@roxo, -10%);
+    }
 }
 
 .btn-home-2{
     .btn;
     .button-variant(@branco, @vermelho, @vermelho);
     .setting-btn-padrao;
+
+    .transition(all 1s);
+
+    &:hover{
+        .transition(all 1s);
+        background-color: lighten(@vermelho, -30%);
+    }
+
+
 }
 
 .btn-home-3{
     .btn;
     .button-variant(@branco, @laranja, @laranja);
     .setting-btn-padrao;
+    .transition(all 1s);
+
+    &:hover{
+        .transition(all 1s);
+        background-color: lighten(@laranja, -30%);
+    }
+}
+
+.btn-abrir{
+    .btn;
+    .button-variant(@branco, @laranja, @laranja);
+    padding: 16px 12px;
+    box-shadow: 0 4px 0 0 #cb1f12;
+    min-width: 190px;
+    border-radius: 0;
+
+    text-transform: uppercase;
+    font-family: MotivaSans;
+    font-size: 16px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.1px;
+    text-align: center;
+    color: #ffffff;
+
 }
 
 .btn-ativo{
     .font(20);    
 }
+
+.img-filter{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.1);
+    z-index: 51;
+}
+
 /*--------------------------------------------------------------
 # body
 --------------------------------------------------------------*/
@@ -190,6 +250,8 @@ body{
 
         &:active, &:focus{
             color: @laranja;
+
+
         }
 
     }
@@ -205,12 +267,20 @@ body{
 header{
     .navbar{
         background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 
 }
 header.branco{
     .navbar{
         background-color: @branco;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 
 }
@@ -270,7 +340,24 @@ header.branco{
 
 .home{
 
+    h2{
+        font-family: MotivaSans;
+        font-size: 32px;
+        font-weight: 700;
+    }
 
+    p{
+        font-family: MotivaSans;
+
+        font-size: 17.33px;
+        font-weight: 300;
+    }
+
+    a{
+        font-family: MotivaSans;
+        color:  #ffffff;
+        font-weight: 700;
+    }
 
     div.main{
         position: relative;
@@ -323,6 +410,480 @@ header.branco{
     }
 }
 
+
+
+/*--------------------------------------------------------------
+# Loop
+--------------------------------------------------------------*/
+.capa-single{
+    min-height: 528px;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 50;  
+    .text-center;
+
+    h1, a{
+        position: relative;
+        z-index: 100;
+    }
+
+    h1{
+        font-family: MotivaSans;
+        font-size: 48px;
+        font-weight: 100;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.13;
+        letter-spacing: -0.6px;
+        text-align: center;
+        color: #ffffff;
+
+        padding-bottom: 76px;
+    }
+}
+
+
+
+.loop{
+    margin-top: 116px;
+
+    .item{
+        border: solid 1px #dcdcdc;
+        border-bottom: solid 4px #ff6600; 
+        margin: 0px 6px 80px;
+        padding: 0 60px 40px;
+
+        a{
+            &:hover, &:active{
+                text-decoration: none;
+            }
+        }
+
+        .center-block;
+        .text-center;
+
+        .avatar{
+            height: 60px;
+            width: auto;
+            margin-top: -30px;
+            margin-bottom: 12px;
+        }
+
+        .autor{
+            font-size: 18px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #444444;
+            margin-bottom: 55px;
+        }
+
+        .data{
+            font-size: 14px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: 0.2px;
+            color: #969696;
+            margin-bottom: 13px;
+        }
+
+        h2{
+            font-size: 24px;
+            font-weight: 100;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: 0.2px;
+            color: #444444;
+            margin-bottom: 9px;    
+            min-height: 102px;
+
+        }
+
+        .intro{
+            p{
+                font-size: 16px;
+                font-weight: 300;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.44;
+                letter-spacing: normal;
+                color: #bababa;
+            }
+
+        }
+
+
+    }
+
+}
+
+
+
+/*--------------------------------------------------------------
+# Single
+--------------------------------------------------------------*/
+.single-post{
+    position: relative;
+
+    margin-bottom: 116px;
+
+    .capa-single{
+        position: relative;
+        z-index: 50;
+        h1{
+            text-align: left;            
+        }
+    }//capa-single
+
+    .meta-dados{
+        position: relative;
+        z-index: 100;
+
+        .center-block;
+        .text-center;
+
+
+        .avatar{
+            margin-top: -44.5px;
+            height: 89px;
+            width: auto;
+        }
+
+        .autor{
+            margin-top: 38px;
+            font-family: MotivaSans;
+            font-size: 18px;
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #444444;
+        }
+        .descricao{
+            margin-top: 15px;
+            font-family: MotivaSans;
+            font-size: 16px;
+            font-weight: 100;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #969696;
+        }
+
+
+        .social-autor{
+            margin-top: 15px;
+            font-family: MotivaSans;
+            font-size: 16px;
+            font-weight: 100;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            color: #1da1f2;
+        }
+
+        hr {
+            margin-top: 48px;
+            margin-bottom: 44px;
+            border: 0;
+            border-top: 2px solid #dcdcdc;
+        }
+
+        .compartilhe{
+            font-size: 16px;
+            font-weight: 100;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.63;
+            letter-spacing: normal;
+            color: #969696;
+        }
+
+        .social{
+            margin-top: 24px;
+            li{
+                a{
+                    font-size: 20px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: #787878;
+                }
+            }
+
+        }
+
+
+
+    }//meta-dados
+
+    .conteudo{
+        margin-top: 83px;
+
+        h2, p{
+            .make-xs-column(12);
+            .make-sm-column(10);
+            .make-sm-column-offset(2);
+        }
+
+        h2{
+            font-family: MotivaSans;
+            font-size: 28px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #ff6600;
+            margin-top: 72px;
+            margin-bottom: 24px;
+
+        }
+
+        p{
+            font-family: MotivaSans;
+            font-size: 18px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.89;
+            letter-spacing: normal;
+            color: #444444;
+            margin-bottom: 24px;
+        }
+
+        img{
+            .make-xs-column(12);
+            width: 100%;
+            height: auto;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+        blockquote{
+            .make-xs-column(10);
+            margin-top: 87px;
+            margin-bottom: 72px;
+            border-left: 0;;
+            p{
+                margin-left: 0;
+                font-family: MotivaSans;
+                font-size: 33px;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.27;
+                letter-spacing: normal;
+                color: #444444
+            }
+        }
+
+    }//conteudo
+
+    .tags{
+        margin-top: 56px;
+    }
+
+
+
+}
+/*--------------------------------------------------------------
+# Faixas
+--------------------------------------------------------------*/
+.faixa{
+
+    margin-top: 50px;
+    margin-bottom: 49px;
+
+    p{
+        font-family: MotivaSans;
+        color:  #444444;
+        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        font-weight: 400;
+        line-height: 29px;/* Aproximação devido à substituição de fonte */
+    }
+
+    h2{
+        color:  #78278c;
+        font-size: 42px;/* Aproximação devido à substituição de fonte */
+        font-weight: 700;
+        line-height: 48px;/* Aproximação devido à substituição de fonte */
+        text-align: center;
+    }
+
+
+
+
+    h3{
+        color:  #78278c;
+        font-size: 23px;/* Aproximação devido à substituição de fonte */
+        font-weight: 700;
+        line-height: 34.667px;/* Aproximação devido à substituição de fonte */
+    }
+    .autor{
+        color:  #151517;
+        font-size: 16px;/* Aproximação devido à substituição de fonte */
+        font-weight: 400;
+        line-height: 42.667px;/* Aproximação devido à substituição de fonte */
+    }
+    .cargo{
+        color:  #78278c;
+        font-size: 15px;/* Aproximação devido à substituição de fonte */
+        font-weight: 300;
+        line-height: 42.667px;/* Aproximação devido à substituição de fonte */
+    }
+
+
+
+}
+/*--------------------------------------------------------------
+## faixa-form
+--------------------------------------------------------------*/
+.faixa-form{
+
+
+    h2{
+        color:  #78278c;
+        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        font-weight: 700;
+        line-height: 32px;/* Aproximação devido à substituição de fonte */
+        text-align: center;
+    }
+
+    label{
+        color:  #444444;
+        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        font-weight: 400;
+        line-height: 32px;/* Aproximação devido à substituição de fonte */
+    }
+
+    input, textArea{
+        border-radius: 0;
+        padding-top: 11px;
+        padding-bottom: 26px;
+    }
+
+    .btn-form{
+        .btn;
+        .button-variant(@branco, @roxo, @roxo);
+        border-radius: 0;
+        width: 100%;
+        font-size: 20px;/* Aproximação devido à substituição de fonte */
+        font-weight: 700;
+        line-height: 34.667px;/* Aproximação devido à substituição de fonte */
+        text-transform: uppercase;
+        padding: 12px 12px;
+
+        margin-top: 16px;
+    }
+}
+/*--------------------------------------------------------------
+## faixa-titulo
+--------------------------------------------------------------*/
+.faixa-titulo{
+
+    .descricao{
+        color:  #444444;
+        font-size: 20px;/* Aproximação devido à substituição de fonte */
+        font-weight: 300;
+        font-style: italic;
+        line-height: 26px;/* Aproximação devido à substituição de fonte */
+
+    }
+
+}
+/*--------------------------------------------------------------
+## faixa-texto
+--------------------------------------------------------------*/
+.faixa-texto{
+
+    p{
+        color:  #444444;
+        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        font-weight: 400;
+        line-height: 32px;/* Aproximação devido à substituição de fonte */
+
+        em{
+
+            font-weight: 500;
+            font-style: italic;
+
+        }
+    }
+
+
+}
+/*--------------------------------------------------------------
+## faixa-imagem
+--------------------------------------------------------------*/
+.faixa-imagem{
+    height: 650px;
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 50;
+
+}
+/*--------------------------------------------------------------
+## faixa-texto-imagem
+--------------------------------------------------------------*/
+.faixa-texto-imagem{
+
+}
+/*--------------------------------------------------------------
+## faixa-video
+--------------------------------------------------------------*/
+.faixa-video{
+
+}
+/*--------------------------------------------------------------
+## faixa-titulo-imagem
+--------------------------------------------------------------*/
+.faixa-titulo-imagem{
+    height: 660px;
+    padding-top: 338px;
+}
+.faixa-titulo-imagem-grande{
+    height: 897px;
+    padding-top: 338px;
+}
+.faixa-titulo-imagem, .faixa-titulo-imagem-grande{    
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 50;
+
+    h1{
+        font-family: MotivaSans;
+        color:  #ffffff;
+        font-size: 42px;/* Aproximação devido à substituição de fonte */
+        font-weight: 700;
+        line-height: 48px;/* Aproximação devido à substituição de fonte */
+        text-align: left;
+    }
+
+    p{
+        font-family: MotivaSans;
+        color:  #ffffff;
+        font-size: 20px;/* Aproximação devido à substituição de fonte */
+        font-weight: 300;
+        line-height: 40px;/* Aproximação devido à substituição de fonte */
+        text-align: left;
+    }
+}
 
 
 /*--------------------------------------------------------------

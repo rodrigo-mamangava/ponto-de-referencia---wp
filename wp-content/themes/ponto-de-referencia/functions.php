@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Ponto de Referencia functions and definitions.
  *
@@ -121,6 +122,9 @@ function ponto_de_referencia_scripts() {
     wp_enqueue_script('ponto-de-referencia-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true);
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
+    }
+    if (is_single()) {
+        wp_enqueue_script('ponto-de-referencia-remove-img-paretn', get_template_directory_uri() . '/js/remove-img-parent.js', array(), '2016028', true);
     }
 
     //

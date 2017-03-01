@@ -4,7 +4,7 @@
  * */
 ?>
 
-<div class="container">
+<div class="container faixa faixa-texto-imagem">
 
     <div class="row">
         

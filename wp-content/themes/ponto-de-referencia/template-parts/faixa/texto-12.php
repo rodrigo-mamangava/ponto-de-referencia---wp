@@ -6,7 +6,7 @@
  */
 ?>
 <!-- col-txt-6-->
-<div class="col-xs-12">
+<div class="col-xs-12 col-sm-8 col-sm-offset-2">
     <?php echo get_field('texto', $postId); ?>
 </div>
 <!-- col-txt-6 END -->
