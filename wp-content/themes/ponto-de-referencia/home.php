@@ -51,7 +51,7 @@ $thumb_url = get_the_post_thumbnail_url($first);
 </section> <!-- capa-single-->
 
 <div class="container loop">
-    <div class="row">  
+    <div class="row is-flex">  
         <?php
         if ($the_query->have_posts()) :
             while ($the_query->have_posts()) : $the_query->the_post();

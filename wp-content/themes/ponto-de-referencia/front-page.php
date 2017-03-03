@@ -1,8 +1,3 @@
-<?php
-
-?>
-
-
 <?php get_header(); ?>
 
 
@@ -66,7 +61,7 @@ endwhile; // End of the loop.
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2>Quero Navegar</h2>
+                    <h2>Quero Conhecer</h2>
                 </div>
             </div>
         </div>

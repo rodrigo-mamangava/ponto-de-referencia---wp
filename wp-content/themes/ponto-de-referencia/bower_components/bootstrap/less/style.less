@@ -46,9 +46,52 @@ h1, h2, h3, h4, h5, h6, p, a{
     margin: 0;
 }
 body{
+    font-family: 'Motiva Sans';
     text-rendering: optimizeLegibility !important;
     -webkit-font-smoothing: antialiased !important;
 }
+
+
+/*--------------------------------------------------------------
+## Make the row think it's a table
+https://scotch.io/bar-talk/different-tricks-on-how-to-make-bootstrap-columns-all-the-same-height
+--------------------------------------------------------------*/
+.row.is-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.row.is-flex > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand. 
+* Use a preprocesser with autoprefixing.
+*/
+.row.is-flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.is-flex > [class*='col-'] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
@@ -166,8 +209,8 @@ body{
     border-radius: 0;
 
     text-transform: uppercase;
-    font-family: MotivaSans;
-    font-size: 16px;
+    font-family: 'Motiva Sans';
+    .font(16);
     font-weight: 900;
     font-style: normal;
     font-stretch: normal;
@@ -244,6 +287,14 @@ body{
     .navbar-nav > li > a {
         .font(19);
         color: @branco;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        @media (max-width: @screen-xs-max) { 
+            color: black;
+            .font(14);
+        }
+
         &:hover{
             color: @branco;
         }
@@ -262,11 +313,16 @@ body{
 
 
 /*--------------------------------------------------------------
-# Capa
+# menu
 --------------------------------------------------------------*/
 header{
     .navbar{
         background-color: transparent;
+
+        @media (max-width: @screen-xs-max) { 
+            background-color: @branco;
+        }
+
         position: absolute;
         top: 0;
         left: 0;
@@ -335,26 +391,45 @@ header.branco{
 
 
 /*--------------------------------------------------------------
+# area-buscar
+--------------------------------------------------------------*/
+.area-buscar{
+    display: none;
+    width: 100%;
+    text-align: right;
+    background-color: @branco;
+    padding: 20px 0;
+
+    .transition(none);
+    *{
+        .transition(none); 
+    }
+
+
+
+}
+/*--------------------------------------------------------------
 # home 
 --------------------------------------------------------------*/
 
 .home{
 
     h2{
-        font-family: MotivaSans;
-        font-size: 32px;
+        font-family: 'Motiva Sans';
+
+        .font(32);
         font-weight: 700;
     }
 
     p{
-        font-family: MotivaSans;
+        font-family: 'Motiva Sans';
 
-        font-size: 17.33px;
+        .font(17);
         font-weight: 300;
     }
 
     a{
-        font-family: MotivaSans;
+        font-family: 'Motiva Sans';
         color:  #ffffff;
         font-weight: 700;
     }
@@ -430,8 +505,9 @@ header.branco{
     }
 
     h1{
-        font-family: MotivaSans;
-        font-size: 48px;
+        font-family: 'Motiva Sans';
+
+        .font(48);
         font-weight: 100;
         font-style: normal;
         font-stretch: normal;
@@ -439,12 +515,35 @@ header.branco{
         letter-spacing: -0.6px;
         text-align: center;
         color: #ffffff;
-
+        padding-top: 209px;
         padding-bottom: 76px;
+
     }
 }
 
+.titulo-tags{
+    padding-top: 51px;
+    //padding-bottom: 44px;
 
+    h1{
+        color:  #78278c;
+        .font(42);
+        font-weight: 700;
+        line-height: 48px;/* Aproximação devido à substituição de fonte */
+        text-align: center;
+    }
+
+    .archive-description{
+        color:  #444444;
+        .font(20);
+        font-weight: 300;
+        font-style: italic;
+        line-height: 26px;/* Aproximação devido à substituição de fonte */
+        text-align: center;
+    }
+
+
+}
 
 .loop{
     margin-top: 116px;
@@ -472,7 +571,7 @@ header.branco{
         }
 
         .autor{
-            font-size: 18px;
+            .font(18);
             font-weight: 500;
             font-style: normal;
             font-stretch: normal;
@@ -483,7 +582,7 @@ header.branco{
         }
 
         .data{
-            font-size: 14px;
+            .font(14);
             font-weight: normal;
             font-style: normal;
             font-stretch: normal;
@@ -494,7 +593,7 @@ header.branco{
         }
 
         h2{
-            font-size: 24px;
+            .font(24);
             font-weight: 100;
             font-style: normal;
             font-stretch: normal;
@@ -508,7 +607,7 @@ header.branco{
 
         .intro{
             p{
-                font-size: 16px;
+                .font(16);
                 font-weight: 300;
                 font-style: normal;
                 font-stretch: normal;
@@ -558,8 +657,8 @@ header.branco{
 
         .autor{
             margin-top: 38px;
-            font-family: MotivaSans;
-            font-size: 18px;
+            font-family: 'Motiva Sans';
+            .font(18);
             font-weight: 500;
             font-style: normal;
             font-stretch: normal;
@@ -569,8 +668,8 @@ header.branco{
         }
         .descricao{
             margin-top: 15px;
-            font-family: MotivaSans;
-            font-size: 16px;
+            font-family: 'Motiva Sans';
+            .font(16);
             font-weight: 100;
             font-style: normal;
             font-stretch: normal;
@@ -582,8 +681,8 @@ header.branco{
 
         .social-autor{
             margin-top: 15px;
-            font-family: MotivaSans;
-            font-size: 16px;
+            font-family: 'Motiva Sans';
+            .font(16);
             font-weight: 100;
             font-style: normal;
             font-stretch: normal;
@@ -599,7 +698,7 @@ header.branco{
         }
 
         .compartilhe{
-            font-size: 16px;
+            .font(16);
             font-weight: 100;
             font-style: normal;
             font-stretch: normal;
@@ -612,7 +711,7 @@ header.branco{
             margin-top: 24px;
             li{
                 a{
-                    font-size: 20px;
+                    .font(20);
                     font-weight: normal;
                     font-style: normal;
                     font-stretch: normal;
@@ -632,6 +731,10 @@ header.branco{
     .conteudo{
         margin-top: 83px;
 
+        *{
+            .make-xs-column(12);
+        }
+
         h2, p{
             .make-xs-column(12);
             .make-sm-column(10);
@@ -639,22 +742,22 @@ header.branco{
         }
 
         h2{
-            font-family: MotivaSans;
-            font-size: 28px;
+            font-family: 'Motiva Sans';
+            .font(28);
             font-weight: 300;
             font-style: normal;
             font-stretch: normal;
             line-height: normal;
             letter-spacing: normal;
             color: #ff6600;
-            margin-top: 72px;
-            margin-bottom: 24px;
+            margin-top: 48px;
+            margin-bottom: 12px;
 
         }
 
         p{
-            font-family: MotivaSans;
-            font-size: 18px;
+            font-family: 'Motiva Sans';
+            .font(18);
             font-weight: 300;
             font-style: normal;
             font-stretch: normal;
@@ -668,24 +771,38 @@ header.branco{
             .make-xs-column(12);
             width: 100%;
             height: auto;
-            margin-top: 60px;
-            margin-bottom: 60px;
+            margin-top: 30px;
+            margin-bottom: 30px;
         }
         blockquote{
-            .make-xs-column(10);
-            margin-top: 87px;
-            margin-bottom: 72px;
-            border-left: 0;;
+            .make-xs-column(12);
+            .make-sm-column(11);
+            margin-top: 43px;
+            margin-bottom: 36px;
+            border-left: 0;
+
+            ::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                width: 20%;
+                left: 0;
+                border-top: 4px solid @laranja;
+            }
+
             p{
                 margin-left: 0;
-                font-family: MotivaSans;
-                font-size: 33px;
+                font-family: 'Motiva Sans';
+                .font(33);
                 font-weight: 500;
                 font-style: normal;
                 font-stretch: normal;
                 line-height: 1.27;
                 letter-spacing: normal;
-                color: #444444
+                color: #444444;
+                padding-top: 11px;
+
             }
         }
 
@@ -693,6 +810,29 @@ header.branco{
 
     .tags{
         margin-top: 56px;
+        margin-bottom: 96px;
+
+        ul{
+            li{
+                &:first-of-type{
+                    .font(14);
+                    font-weight: 500;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                    color: #c8c8c8;
+                    text-transform: uppercase;
+                }
+                a{
+                    border-radius: 14px;
+                    background-color: #c8c8c8;
+                    color: @branco;
+                    padding: 6px 16px;
+                    text-transform: uppercase;
+                }
+            }
+        }
     }
 
 
@@ -706,17 +846,21 @@ header.branco{
     margin-top: 50px;
     margin-bottom: 49px;
 
+    &:first-of-type{
+        margin-top: 0px;
+    }
+
     p{
-        font-family: MotivaSans;
+        font-family: 'Motiva Sans';
         color:  #444444;
-        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        .font(18);
         font-weight: 400;
         line-height: 29px;/* Aproximação devido à substituição de fonte */
     }
 
     h2{
         color:  #78278c;
-        font-size: 42px;/* Aproximação devido à substituição de fonte */
+        .font(42);
         font-weight: 700;
         line-height: 48px;/* Aproximação devido à substituição de fonte */
         text-align: center;
@@ -727,19 +871,19 @@ header.branco{
 
     h3{
         color:  #78278c;
-        font-size: 23px;/* Aproximação devido à substituição de fonte */
+        .font(23);
         font-weight: 700;
         line-height: 34.667px;/* Aproximação devido à substituição de fonte */
     }
     .autor{
         color:  #151517;
-        font-size: 16px;/* Aproximação devido à substituição de fonte */
+        .font(16);
         font-weight: 400;
         line-height: 42.667px;/* Aproximação devido à substituição de fonte */
     }
     .cargo{
         color:  #78278c;
-        font-size: 15px;/* Aproximação devido à substituição de fonte */
+        .font(15);
         font-weight: 300;
         line-height: 42.667px;/* Aproximação devido à substituição de fonte */
     }
@@ -755,37 +899,54 @@ header.branco{
 
     h2{
         color:  #78278c;
-        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        .font(18);
         font-weight: 700;
         line-height: 32px;/* Aproximação devido à substituição de fonte */
         text-align: center;
     }
 
-    label{
-        color:  #444444;
-        font-size: 18px;/* Aproximação devido à substituição de fonte */
-        font-weight: 400;
-        line-height: 32px;/* Aproximação devido à substituição de fonte */
+    div.wpcf7 {
+        border-top: solid 1px @roxo;
+        margin-top: 26px;
+        padding-top: 24px;
     }
 
-    input, textArea{
-        border-radius: 0;
-        padding-top: 11px;
-        padding-bottom: 26px;
-    }
+    .wpcf7-form{
 
-    .btn-form{
-        .btn;
-        .button-variant(@branco, @roxo, @roxo);
-        border-radius: 0;
-        width: 100%;
-        font-size: 20px;/* Aproximação devido à substituição de fonte */
-        font-weight: 700;
-        line-height: 34.667px;/* Aproximação devido à substituição de fonte */
-        text-transform: uppercase;
-        padding: 12px 12px;
+        label{
+            display: initial;
+            color:  #444444;
+            .font(18);
+            font-weight: 400;
+            line-height: 32px;/* Aproximação devido à substituição de fonte */
+        }
 
-        margin-top: 16px;
+        input[type="submit"]{
+            .btn;
+            .button-variant(@branco, @roxo, @roxo);
+            border-radius: 0 !important;
+            width: 100% !important;
+            .font(20);
+            font-weight: 700 !important;
+            line-height: 34.667px !important;/* Aproximação devido à substituição de fonte */
+            text-transform: uppercase !important;
+            padding: 12px 12px !important;
+            margin-top: 16px !important;
+            height: auto;
+        }
+
+        input, button, select, textarea{
+            .form-control;
+            border-radius: 0;
+            margin-top: 11px;
+            margin-bottom: 26px;
+        }
+        textarea{
+            height: initial;
+        }
+
+
+
     }
 }
 /*--------------------------------------------------------------
@@ -795,7 +956,7 @@ header.branco{
 
     .descricao{
         color:  #444444;
-        font-size: 20px;/* Aproximação devido à substituição de fonte */
+        .font(20);
         font-weight: 300;
         font-style: italic;
         line-height: 26px;/* Aproximação devido à substituição de fonte */
@@ -810,7 +971,7 @@ header.branco{
 
     p{
         color:  #444444;
-        font-size: 18px;/* Aproximação devido à substituição de fonte */
+        .font(18);
         font-weight: 400;
         line-height: 32px;/* Aproximação devido à substituição de fonte */
 
@@ -837,6 +998,13 @@ header.branco{
 
 }
 /*--------------------------------------------------------------
+## faixa-imagem-crop
+--------------------------------------------------------------*/
+.faixa-imagem{
+
+
+}
+/*--------------------------------------------------------------
 ## faixa-texto-imagem
 --------------------------------------------------------------*/
 .faixa-texto-imagem{
@@ -858,6 +1026,15 @@ header.branco{
 .faixa-titulo-imagem-grande{
     height: 897px;
     padding-top: 338px;
+
+    @media (max-width: @screen-xs-max) { 
+        height: 200px;
+        padding-top: 80px;
+        margin-bottom: 80px;
+    }
+
+
+
 }
 .faixa-titulo-imagem, .faixa-titulo-imagem-grande{    
     background-position: 50%;
@@ -866,19 +1043,25 @@ header.branco{
     position: relative;
     z-index: 50;
 
+
+
     h1{
-        font-family: MotivaSans;
+        font-family: 'Motiva Sans';
         color:  #ffffff;
-        font-size: 42px;/* Aproximação devido à substituição de fonte */
+        .font(42);
         font-weight: 700;
         line-height: 48px;/* Aproximação devido à substituição de fonte */
         text-align: left;
+
+        @media (max-width: @screen-xs-max) { 
+            .font(22);
+        }
     }
 
     p{
-        font-family: MotivaSans;
+        font-family: 'Motiva Sans';
         color:  #ffffff;
-        font-size: 20px;/* Aproximação devido à substituição de fonte */
+        .font(20);
         font-weight: 300;
         line-height: 40px;/* Aproximação devido à substituição de fonte */
         text-align: left;
@@ -912,6 +1095,9 @@ footer{
 
     .links-menu{
         text-align: right;
+
+        .hidden-xs;
+
         li{
             a{
                 .font(18);

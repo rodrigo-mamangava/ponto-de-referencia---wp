@@ -3,7 +3,7 @@
  * Template name: Faixa Imagem Crop
  * */
 ?>
-<div class="container faixa faixa-imagem">
+<div class="container faixa faixa-imagem-crop">
 
     <div class="row">
         

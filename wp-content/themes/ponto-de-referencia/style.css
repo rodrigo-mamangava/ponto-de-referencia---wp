@@ -6771,8 +6771,46 @@ a {
   margin: 0;
 }
 body {
+  font-family: 'Motiva Sans';
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
+}
+/*--------------------------------------------------------------
+## Make the row think it's a table
+https://scotch.io/bar-talk/different-tricks-on-how-to-make-bootstrap-columns-all-the-same-height
+--------------------------------------------------------------*/
+.row.is-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+.row.is-flex > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+/*
+* And with max cross-browser enabled.
+* Nobody should ever write this by hand. 
+* Use a preprocesser with autoprefixing.
+*/
+.row.is-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.row.is-flex > [class*='col-'] {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 /*--------------------------------------------------------------
 # Normalize
@@ -7264,8 +7302,9 @@ fieldset[disabled] .btn-home-3.focus {
   min-width: 190px;
   border-radius: 0;
   text-transform: uppercase;
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 900;
   font-style: normal;
   font-stretch: normal;
@@ -7422,6 +7461,15 @@ body {
   font-size: 19px;
   font-size: 1.9rem;
   color: #ffffff;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav > li > a {
+    color: black;
+    font-size: 14px;
+    font-size: 1.4rem;
+  }
 }
 .navbar-default .navbar-nav > li > a:hover {
   color: #ffffff;
@@ -7431,7 +7479,7 @@ body {
   color: #ff6600;
 }
 /*--------------------------------------------------------------
-# Capa
+# menu
 --------------------------------------------------------------*/
 header .navbar {
   background-color: transparent;
@@ -7439,6 +7487,11 @@ header .navbar {
   top: 0;
   left: 0;
   right: 0;
+}
+@media (max-width: 767px) {
+  header .navbar {
+    background-color: #ffffff;
+  }
 }
 header.branco .navbar {
   background-color: #ffffff;
@@ -7491,20 +7544,40 @@ header.branco .navbar {
   margin-bottom: 24px;
 }
 /*--------------------------------------------------------------
+# area-buscar
+--------------------------------------------------------------*/
+.area-buscar {
+  display: none;
+  width: 100%;
+  text-align: right;
+  background-color: #ffffff;
+  padding: 20px 0;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+.area-buscar * {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/*--------------------------------------------------------------
 # home 
 --------------------------------------------------------------*/
 .home h2 {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 32px;
+  font-size: 3.2rem;
   font-weight: 700;
 }
 .home p {
-  font-family: MotivaSans;
-  font-size: 17.33px;
+  font-family: 'Motiva Sans';
+  font-size: 17px;
+  font-size: 1.7rem;
   font-weight: 300;
 }
 .home a {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   color: #ffffff;
   font-weight: 700;
 }
@@ -7578,8 +7651,9 @@ header.branco .navbar {
   z-index: 100;
 }
 .capa-single h1 {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 100;
   font-style: normal;
   font-stretch: normal;
@@ -7587,7 +7661,30 @@ header.branco .navbar {
   letter-spacing: -0.6px;
   text-align: center;
   color: #ffffff;
+  padding-top: 209px;
   padding-bottom: 76px;
+}
+.titulo-tags {
+  padding-top: 51px;
+}
+.titulo-tags h1 {
+  color: #78278c;
+  font-size: 42px;
+  font-size: 4.2rem;
+  font-weight: 700;
+  line-height: 48px;
+  /* Aproximação devido à substituição de fonte */
+  text-align: center;
+}
+.titulo-tags .archive-description {
+  color: #444444;
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 26px;
+  /* Aproximação devido à substituição de fonte */
+  text-align: center;
 }
 .loop {
   margin-top: 116px;
@@ -7614,6 +7711,7 @@ header.branco .navbar {
 }
 .loop .item .autor {
   font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -7624,6 +7722,7 @@ header.branco .navbar {
 }
 .loop .item .data {
   font-size: 14px;
+  font-size: 1.4rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -7634,6 +7733,7 @@ header.branco .navbar {
 }
 .loop .item h2 {
   font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 100;
   font-style: normal;
   font-stretch: normal;
@@ -7645,6 +7745,7 @@ header.branco .navbar {
 }
 .loop .item .intro p {
   font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
@@ -7681,8 +7782,9 @@ header.branco .navbar {
 }
 .single-post .meta-dados .autor {
   margin-top: 38px;
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
@@ -7692,8 +7794,9 @@ header.branco .navbar {
 }
 .single-post .meta-dados .descricao {
   margin-top: 15px;
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 100;
   font-style: normal;
   font-stretch: normal;
@@ -7703,8 +7806,9 @@ header.branco .navbar {
 }
 .single-post .meta-dados .social-autor {
   margin-top: 15px;
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 100;
   font-style: normal;
   font-stretch: normal;
@@ -7719,6 +7823,7 @@ header.branco .navbar {
 }
 .single-post .meta-dados .compartilhe {
   font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 100;
   font-style: normal;
   font-stretch: normal;
@@ -7731,6 +7836,7 @@ header.branco .navbar {
 }
 .single-post .meta-dados .social li a {
   font-size: 20px;
+  font-size: 2rem;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -7741,6 +7847,14 @@ header.branco .navbar {
 }
 .single-post .conteudo {
   margin-top: 83px;
+}
+.single-post .conteudo * {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 1px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 .single-post .conteudo h2,
 .single-post .conteudo p {
@@ -7765,20 +7879,22 @@ header.branco .navbar {
   }
 }
 .single-post .conteudo h2 {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
   color: #ff6600;
-  margin-top: 72px;
-  margin-bottom: 24px;
+  margin-top: 48px;
+  margin-bottom: 12px;
 }
 .single-post .conteudo p {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
@@ -7795,33 +7911,69 @@ header.branco .navbar {
   padding-right: 6px;
   width: 100%;
   height: auto;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .single-post .conteudo blockquote {
-  position: relative;
   float: left;
-  width: 83.33333333%;
+  width: 100%;
+  position: relative;
   min-height: 1px;
   padding-left: 6px;
   padding-right: 6px;
-  margin-top: 87px;
-  margin-bottom: 72px;
+  margin-top: 43px;
+  margin-bottom: 36px;
   border-left: 0;
+}
+@media (min-width: 768px) {
+  .single-post .conteudo blockquote {
+    float: left;
+    width: 91.66666667%;
+  }
+}
+.single-post .conteudo blockquote ::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 20%;
+  left: 0;
+  border-top: 4px solid #ff6600;
 }
 .single-post .conteudo blockquote p {
   margin-left: 0;
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   font-size: 33px;
+  font-size: 3.3rem;
   font-weight: 500;
   font-style: normal;
   font-stretch: normal;
   line-height: 1.27;
   letter-spacing: normal;
   color: #444444;
+  padding-top: 11px;
 }
 .single-post .tags {
   margin-top: 56px;
+  margin-bottom: 96px;
+}
+.single-post .tags ul li:first-of-type {
+  font-size: 14px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #c8c8c8;
+  text-transform: uppercase;
+}
+.single-post .tags ul li a {
+  border-radius: 14px;
+  background-color: #c8c8c8;
+  color: #ffffff;
+  padding: 6px 16px;
+  text-transform: uppercase;
 }
 /*--------------------------------------------------------------
 # Faixas
@@ -7830,11 +7982,14 @@ header.branco .navbar {
   margin-top: 50px;
   margin-bottom: 49px;
 }
+.faixa:first-of-type {
+  margin-top: 0px;
+}
 .faixa p {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   color: #444444;
   font-size: 18px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 29px;
   /* Aproximação devido à substituição de fonte */
@@ -7842,7 +7997,7 @@ header.branco .navbar {
 .faixa h2 {
   color: #78278c;
   font-size: 42px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 4.2rem;
   font-weight: 700;
   line-height: 48px;
   /* Aproximação devido à substituição de fonte */
@@ -7851,7 +8006,7 @@ header.branco .navbar {
 .faixa h3 {
   color: #78278c;
   font-size: 23px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 2.3rem;
   font-weight: 700;
   line-height: 34.667px;
   /* Aproximação devido à substituição de fonte */
@@ -7859,7 +8014,7 @@ header.branco .navbar {
 .faixa .autor {
   color: #151517;
   font-size: 16px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 42.667px;
   /* Aproximação devido à substituição de fonte */
@@ -7867,7 +8022,7 @@ header.branco .navbar {
 .faixa .cargo {
   color: #78278c;
   font-size: 15px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 1.5rem;
   font-weight: 300;
   line-height: 42.667px;
   /* Aproximação devido à substituição de fonte */
@@ -7878,27 +8033,27 @@ header.branco .navbar {
 .faixa-form h2 {
   color: #78278c;
   font-size: 18px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 1.8rem;
   font-weight: 700;
   line-height: 32px;
   /* Aproximação devido à substituição de fonte */
   text-align: center;
 }
-.faixa-form label {
+.faixa-form div.wpcf7 {
+  border-top: solid 1px #78278C;
+  margin-top: 26px;
+  padding-top: 24px;
+}
+.faixa-form .wpcf7-form label {
+  display: initial;
   color: #444444;
   font-size: 18px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 32px;
   /* Aproximação devido à substituição de fonte */
 }
-.faixa-form input,
-.faixa-form textArea {
-  border-radius: 0;
-  padding-top: 11px;
-  padding-bottom: 26px;
-}
-.faixa-form .btn-form {
+.faixa-form .wpcf7-form input[type="submit"] {
   display: inline-block;
   margin-bottom: 0;
   font-weight: normal;
@@ -7920,103 +8075,197 @@ header.branco .navbar {
   color: #ffffff;
   background-color: #78278C;
   border-color: #78278C;
-  border-radius: 0;
-  width: 100%;
+  border-radius: 0 !important;
+  width: 100% !important;
   font-size: 20px;
+  font-size: 2rem;
+  font-weight: 700 !important;
+  line-height: 34.667px !important;
   /* Aproximação devido à substituição de fonte */
-  font-weight: 700;
-  line-height: 34.667px;
-  /* Aproximação devido à substituição de fonte */
-  text-transform: uppercase;
-  padding: 12px 12px;
-  margin-top: 16px;
+  text-transform: uppercase !important;
+  padding: 12px 12px !important;
+  margin-top: 16px !important;
+  height: auto;
 }
-.faixa-form .btn-form:focus,
-.faixa-form .btn-form:active:focus,
-.faixa-form .btn-form.active:focus,
-.faixa-form .btn-form.focus,
-.faixa-form .btn-form:active.focus,
-.faixa-form .btn-form.active.focus {
+.faixa-form .wpcf7-form input[type="submit"]:focus,
+.faixa-form .wpcf7-form input[type="submit"]:active:focus,
+.faixa-form .wpcf7-form input[type="submit"].active:focus,
+.faixa-form .wpcf7-form input[type="submit"].focus,
+.faixa-form .wpcf7-form input[type="submit"]:active.focus,
+.faixa-form .wpcf7-form input[type="submit"].active.focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-.faixa-form .btn-form:hover,
-.faixa-form .btn-form:focus,
-.faixa-form .btn-form.focus {
+.faixa-form .wpcf7-form input[type="submit"]:hover,
+.faixa-form .wpcf7-form input[type="submit"]:focus,
+.faixa-form .wpcf7-form input[type="submit"].focus {
   color: #333;
   text-decoration: none;
 }
-.faixa-form .btn-form:active,
-.faixa-form .btn-form.active {
+.faixa-form .wpcf7-form input[type="submit"]:active,
+.faixa-form .wpcf7-form input[type="submit"].active {
   outline: 0;
   background-image: none;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.faixa-form .btn-form.disabled,
-.faixa-form .btn-form[disabled],
-fieldset[disabled] .faixa-form .btn-form {
+.faixa-form .wpcf7-form input[type="submit"].disabled,
+.faixa-form .wpcf7-form input[type="submit"][disabled],
+fieldset[disabled] .faixa-form .wpcf7-form input[type="submit"] {
   cursor: not-allowed;
   opacity: 0.65;
   filter: alpha(opacity=65);
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-a.faixa-form .btn-form.disabled,
-fieldset[disabled] a.faixa-form .btn-form {
+a.faixa-form .wpcf7-form input[type="submit"].disabled,
+fieldset[disabled] a.faixa-form .wpcf7-form input[type="submit"] {
   pointer-events: none;
 }
-.faixa-form .btn-form:focus,
-.faixa-form .btn-form.focus {
+.faixa-form .wpcf7-form input[type="submit"]:focus,
+.faixa-form .wpcf7-form input[type="submit"].focus {
   color: #ffffff;
   background-color: #561c64;
   border-color: #230b28;
 }
-.faixa-form .btn-form:hover {
+.faixa-form .wpcf7-form input[type="submit"]:hover {
   color: #ffffff;
   background-color: #561c64;
   border-color: #4f1a5c;
 }
-.faixa-form .btn-form:active,
-.faixa-form .btn-form.active,
-.open > .dropdown-toggle.faixa-form .btn-form {
+.faixa-form .wpcf7-form input[type="submit"]:active,
+.faixa-form .wpcf7-form input[type="submit"].active,
+.open > .dropdown-toggle.faixa-form .wpcf7-form input[type="submit"] {
   color: #ffffff;
   background-color: #561c64;
   border-color: #4f1a5c;
 }
-.faixa-form .btn-form:active:hover,
-.faixa-form .btn-form.active:hover,
-.open > .dropdown-toggle.faixa-form .btn-form:hover,
-.faixa-form .btn-form:active:focus,
-.faixa-form .btn-form.active:focus,
-.open > .dropdown-toggle.faixa-form .btn-form:focus,
-.faixa-form .btn-form:active.focus,
-.faixa-form .btn-form.active.focus,
-.open > .dropdown-toggle.faixa-form .btn-form.focus {
+.faixa-form .wpcf7-form input[type="submit"]:active:hover,
+.faixa-form .wpcf7-form input[type="submit"].active:hover,
+.open > .dropdown-toggle.faixa-form .wpcf7-form input[type="submit"]:hover,
+.faixa-form .wpcf7-form input[type="submit"]:active:focus,
+.faixa-form .wpcf7-form input[type="submit"].active:focus,
+.open > .dropdown-toggle.faixa-form .wpcf7-form input[type="submit"]:focus,
+.faixa-form .wpcf7-form input[type="submit"]:active.focus,
+.faixa-form .wpcf7-form input[type="submit"].active.focus,
+.open > .dropdown-toggle.faixa-form .wpcf7-form input[type="submit"].focus {
   color: #ffffff;
   background-color: #3e1448;
   border-color: #230b28;
 }
-.faixa-form .btn-form:active,
-.faixa-form .btn-form.active,
-.open > .dropdown-toggle.faixa-form .btn-form {
+.faixa-form .wpcf7-form input[type="submit"]:active,
+.faixa-form .wpcf7-form input[type="submit"].active,
+.open > .dropdown-toggle.faixa-form .wpcf7-form input[type="submit"] {
   background-image: none;
 }
-.faixa-form .btn-form.disabled:hover,
-.faixa-form .btn-form[disabled]:hover,
-fieldset[disabled] .faixa-form .btn-form:hover,
-.faixa-form .btn-form.disabled:focus,
-.faixa-form .btn-form[disabled]:focus,
-fieldset[disabled] .faixa-form .btn-form:focus,
-.faixa-form .btn-form.disabled.focus,
-.faixa-form .btn-form[disabled].focus,
-fieldset[disabled] .faixa-form .btn-form.focus {
+.faixa-form .wpcf7-form input[type="submit"].disabled:hover,
+.faixa-form .wpcf7-form input[type="submit"][disabled]:hover,
+fieldset[disabled] .faixa-form .wpcf7-form input[type="submit"]:hover,
+.faixa-form .wpcf7-form input[type="submit"].disabled:focus,
+.faixa-form .wpcf7-form input[type="submit"][disabled]:focus,
+fieldset[disabled] .faixa-form .wpcf7-form input[type="submit"]:focus,
+.faixa-form .wpcf7-form input[type="submit"].disabled.focus,
+.faixa-form .wpcf7-form input[type="submit"][disabled].focus,
+fieldset[disabled] .faixa-form .wpcf7-form input[type="submit"].focus {
   background-color: #78278C;
   border-color: #78278C;
 }
-.faixa-form .btn-form .badge {
+.faixa-form .wpcf7-form input[type="submit"] .badge {
   color: #78278C;
   background-color: #ffffff;
+}
+.faixa-form .wpcf7-form input,
+.faixa-form .wpcf7-form button,
+.faixa-form .wpcf7-form select,
+.faixa-form .wpcf7-form textarea {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  border-radius: 0;
+  margin-top: 11px;
+  margin-bottom: 26px;
+}
+.faixa-form .wpcf7-form input:focus,
+.faixa-form .wpcf7-form button:focus,
+.faixa-form .wpcf7-form select:focus,
+.faixa-form .wpcf7-form textarea:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.faixa-form .wpcf7-form input::-moz-placeholder,
+.faixa-form .wpcf7-form button::-moz-placeholder,
+.faixa-form .wpcf7-form select::-moz-placeholder,
+.faixa-form .wpcf7-form textarea::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.faixa-form .wpcf7-form input:-ms-input-placeholder,
+.faixa-form .wpcf7-form button:-ms-input-placeholder,
+.faixa-form .wpcf7-form select:-ms-input-placeholder,
+.faixa-form .wpcf7-form textarea:-ms-input-placeholder {
+  color: #999;
+}
+.faixa-form .wpcf7-form input::-webkit-input-placeholder,
+.faixa-form .wpcf7-form button::-webkit-input-placeholder,
+.faixa-form .wpcf7-form select::-webkit-input-placeholder,
+.faixa-form .wpcf7-form textarea::-webkit-input-placeholder {
+  color: #999;
+}
+.faixa-form .wpcf7-form input::-ms-expand,
+.faixa-form .wpcf7-form button::-ms-expand,
+.faixa-form .wpcf7-form select::-ms-expand,
+.faixa-form .wpcf7-form textarea::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.faixa-form .wpcf7-form input[disabled],
+.faixa-form .wpcf7-form button[disabled],
+.faixa-form .wpcf7-form select[disabled],
+.faixa-form .wpcf7-form textarea[disabled],
+.faixa-form .wpcf7-form input[readonly],
+.faixa-form .wpcf7-form button[readonly],
+.faixa-form .wpcf7-form select[readonly],
+.faixa-form .wpcf7-form textarea[readonly],
+fieldset[disabled] .faixa-form .wpcf7-form input,
+fieldset[disabled] .faixa-form .wpcf7-form button,
+fieldset[disabled] .faixa-form .wpcf7-form select,
+fieldset[disabled] .faixa-form .wpcf7-form textarea {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.faixa-form .wpcf7-form input[disabled],
+.faixa-form .wpcf7-form button[disabled],
+.faixa-form .wpcf7-form select[disabled],
+.faixa-form .wpcf7-form textarea[disabled],
+fieldset[disabled] .faixa-form .wpcf7-form input,
+fieldset[disabled] .faixa-form .wpcf7-form button,
+fieldset[disabled] .faixa-form .wpcf7-form select,
+fieldset[disabled] .faixa-form .wpcf7-form textarea {
+  cursor: not-allowed;
+}
+textarea.faixa-form .wpcf7-form input,
+textarea.faixa-form .wpcf7-form button,
+textarea.faixa-form .wpcf7-form select,
+textarea.faixa-form .wpcf7-form textarea {
+  height: auto;
+}
+.faixa-form .wpcf7-form textarea {
+  height: initial;
 }
 /*--------------------------------------------------------------
 ## faixa-titulo
@@ -8024,7 +8273,7 @@ fieldset[disabled] .faixa-form .btn-form.focus {
 .faixa-titulo .descricao {
   color: #444444;
   font-size: 20px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 2rem;
   font-weight: 300;
   font-style: italic;
   line-height: 26px;
@@ -8036,7 +8285,7 @@ fieldset[disabled] .faixa-form .btn-form.focus {
 .faixa-texto p {
   color: #444444;
   font-size: 18px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 1.8rem;
   font-weight: 400;
   line-height: 32px;
   /* Aproximação devido à substituição de fonte */
@@ -8057,6 +8306,9 @@ fieldset[disabled] .faixa-form .btn-form.focus {
   z-index: 50;
 }
 /*--------------------------------------------------------------
+## faixa-imagem-crop
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
 ## faixa-texto-imagem
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -8073,6 +8325,13 @@ fieldset[disabled] .faixa-form .btn-form.focus {
   height: 897px;
   padding-top: 338px;
 }
+@media (max-width: 767px) {
+  .faixa-titulo-imagem-grande {
+    height: 200px;
+    padding-top: 80px;
+    margin-bottom: 80px;
+  }
+}
 .faixa-titulo-imagem,
 .faixa-titulo-imagem-grande {
   background-position: 50%;
@@ -8083,21 +8342,28 @@ fieldset[disabled] .faixa-form .btn-form.focus {
 }
 .faixa-titulo-imagem h1,
 .faixa-titulo-imagem-grande h1 {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   color: #ffffff;
   font-size: 42px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 4.2rem;
   font-weight: 700;
   line-height: 48px;
   /* Aproximação devido à substituição de fonte */
   text-align: left;
 }
+@media (max-width: 767px) {
+  .faixa-titulo-imagem h1,
+  .faixa-titulo-imagem-grande h1 {
+    font-size: 22px;
+    font-size: 2.2rem;
+  }
+}
 .faixa-titulo-imagem p,
 .faixa-titulo-imagem-grande p {
-  font-family: MotivaSans;
+  font-family: 'Motiva Sans';
   color: #ffffff;
   font-size: 20px;
-  /* Aproximação devido à substituição de fonte */
+  font-size: 2rem;
   font-weight: 300;
   line-height: 40px;
   /* Aproximação devido à substituição de fonte */
@@ -8134,6 +8400,11 @@ footer .social img {
 }
 footer .links-menu {
   text-align: right;
+}
+@media (max-width: 767px) {
+  footer .links-menu {
+    display: none !important;
+  }
 }
 footer .links-menu li {
   padding-left: 20px;
