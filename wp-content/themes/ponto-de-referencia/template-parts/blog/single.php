@@ -39,16 +39,16 @@
 
             <ul class="social list-inline">
                 <li>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_black" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_page_link();?>"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_black" href="https://twitter.com/home?status=<?php echo get_page_link();?>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_black" href="mailto:?&subject=<?php echo get_the_title();?>&body=<?php echo get_page_link();?>"><i class="fa fa-link" aria-hidden="true"></i></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a target="_black" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo get_page_link();?>&title=Ponto%20de%20refer%C3%AAncia"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                 </li>
             </ul>
 

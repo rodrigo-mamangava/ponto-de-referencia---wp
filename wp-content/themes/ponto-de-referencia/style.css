@@ -7644,6 +7644,7 @@ header.branco .navbar {
   position: relative;
   z-index: 50;
   text-align: center;
+  background-color: #78278C;
 }
 .capa-single h1,
 .capa-single a {
@@ -8278,6 +8279,142 @@ textarea.faixa-form .wpcf7-form textarea {
   font-style: italic;
   line-height: 26px;
   /* Aproximação devido à substituição de fonte */
+}
+/*--------------------------------------------------------------
+## faixa-arquivo
+--------------------------------------------------------------*/
+.faixa-arquivo .descricao {
+  color: #444444;
+  font-size: 20px;
+  font-size: 2rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 26px;
+  /* Aproximação devido à substituição de fonte */
+}
+.faixa-arquivo .btn-arquivo {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #ff6600;
+  border-color: #ff6600;
+  padding: 16px 12px;
+  box-shadow: 0 4px 0 0 #cb1f12;
+  min-width: 190px;
+  border-radius: 0;
+  text-transform: uppercase;
+  font-family: 'Motiva Sans';
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.1px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 35px;
+}
+.faixa-arquivo .btn-arquivo:focus,
+.faixa-arquivo .btn-arquivo:active:focus,
+.faixa-arquivo .btn-arquivo.active:focus,
+.faixa-arquivo .btn-arquivo.focus,
+.faixa-arquivo .btn-arquivo:active.focus,
+.faixa-arquivo .btn-arquivo.active.focus {
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.faixa-arquivo .btn-arquivo:hover,
+.faixa-arquivo .btn-arquivo:focus,
+.faixa-arquivo .btn-arquivo.focus {
+  color: #333;
+  text-decoration: none;
+}
+.faixa-arquivo .btn-arquivo:active,
+.faixa-arquivo .btn-arquivo.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.faixa-arquivo .btn-arquivo.disabled,
+.faixa-arquivo .btn-arquivo[disabled],
+fieldset[disabled] .faixa-arquivo .btn-arquivo {
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.faixa-arquivo .btn-arquivo.disabled,
+fieldset[disabled] a.faixa-arquivo .btn-arquivo {
+  pointer-events: none;
+}
+.faixa-arquivo .btn-arquivo:focus,
+.faixa-arquivo .btn-arquivo.focus {
+  color: #ffffff;
+  background-color: #cc5200;
+  border-color: #803300;
+}
+.faixa-arquivo .btn-arquivo:hover {
+  color: #ffffff;
+  background-color: #cc5200;
+  border-color: #c24e00;
+}
+.faixa-arquivo .btn-arquivo:active,
+.faixa-arquivo .btn-arquivo.active,
+.open > .dropdown-toggle.faixa-arquivo .btn-arquivo {
+  color: #ffffff;
+  background-color: #cc5200;
+  border-color: #c24e00;
+}
+.faixa-arquivo .btn-arquivo:active:hover,
+.faixa-arquivo .btn-arquivo.active:hover,
+.open > .dropdown-toggle.faixa-arquivo .btn-arquivo:hover,
+.faixa-arquivo .btn-arquivo:active:focus,
+.faixa-arquivo .btn-arquivo.active:focus,
+.open > .dropdown-toggle.faixa-arquivo .btn-arquivo:focus,
+.faixa-arquivo .btn-arquivo:active.focus,
+.faixa-arquivo .btn-arquivo.active.focus,
+.open > .dropdown-toggle.faixa-arquivo .btn-arquivo.focus {
+  color: #ffffff;
+  background-color: #a84300;
+  border-color: #803300;
+}
+.faixa-arquivo .btn-arquivo:active,
+.faixa-arquivo .btn-arquivo.active,
+.open > .dropdown-toggle.faixa-arquivo .btn-arquivo {
+  background-image: none;
+}
+.faixa-arquivo .btn-arquivo.disabled:hover,
+.faixa-arquivo .btn-arquivo[disabled]:hover,
+fieldset[disabled] .faixa-arquivo .btn-arquivo:hover,
+.faixa-arquivo .btn-arquivo.disabled:focus,
+.faixa-arquivo .btn-arquivo[disabled]:focus,
+fieldset[disabled] .faixa-arquivo .btn-arquivo:focus,
+.faixa-arquivo .btn-arquivo.disabled.focus,
+.faixa-arquivo .btn-arquivo[disabled].focus,
+fieldset[disabled] .faixa-arquivo .btn-arquivo.focus {
+  background-color: #ff6600;
+  border-color: #ff6600;
+}
+.faixa-arquivo .btn-arquivo .badge {
+  color: #ff6600;
+  background-color: #ffffff;
 }
 /*--------------------------------------------------------------
 ## faixa-texto

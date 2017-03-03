@@ -174,7 +174,7 @@ function get_header_transparente_int() {
 
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="<?php echo esc_url(home_url('/')); ?>">Voltar para o site</a></li>
-                        <li><a href="#implementar-1">Inscrever-se</a></li>
+<!--                        <li><a href="#implementar-1">Inscrever-se</a></li>-->
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

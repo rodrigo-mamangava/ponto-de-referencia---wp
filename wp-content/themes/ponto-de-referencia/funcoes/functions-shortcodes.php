@@ -81,6 +81,10 @@ function printFaixa($atts) {
         case 'faixa-titulo-imagem-grande.php':
             include(locate_template('faixa-titulo-imagem-grande.php'));
             break;
+        
+        case 'faixa-arquivo.php':
+            include(locate_template('faixa-arquivo.php'));
+            break;
 
         default:
             break;
